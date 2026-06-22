@@ -23,8 +23,8 @@
             <a href="index.html" class="navbar-logo">Aurelia</a>
             <div class="navbar-links">
                 <a href="index.html">Shop</a>
-                <a href="#">New Arrivals</a>
-                <a href="#">About</a>
+                <a href="new-arrivals.html">New Arrivals</a>
+                <a href="about.html">About</a>
             </div>
             <div class="navbar-icons">
                 <button class="hamburger-btn" id="hamburger-btn">☰</button>
@@ -36,34 +36,38 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html">Shop</a>
-        <a href="#">New Arrivals</a>
-        <a href="#">About</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="about.html">About</a>
         <a href="login.html">Login</a>
     </div>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <p class="hero-eyebrow">New Collection 2026</p>
-            <h1 class="hero-title">Effortless essentials,<br />made to last.</h1>
-            <p class="hero-subtitle">Thoughtfully designed pieces for everyday living — quality you can feel, style that
-                endures.</p>
-            <div class="hero-actions">
-                <a href="#product-grid" class="btn btn-primary">Shop Now</a>
-                <a href="register.html" class="btn btn-secondary">Join Aurelia</a>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <p class="hero-eyebrow">New Collection 2026</p>
+                <h1 class="hero-title">Effortless essentials,<br />made to last.</h1>
+                <p class="hero-subtitle">Thoughtfully designed pieces for everyday living — quality you can feel, style that endures.</p>
+                <div class="hero-actions">
+                    <a href="#product-grid-section" class="btn btn-primary">Shop Now</a>
+                    <a href="register.html" class="btn btn-secondary">Join Aurelia</a>
+                </div>
             </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-image-placeholder">
-                <p>Aurelia</p>
+            <div class="hero-visual">
+                <div class="hero-image-placeholder">
+                    <span>Aurelia</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Product Grid Section -->
     <main class="container" style="padding-bottom: var(--space-2xl);">
-        <div class="section-header" id="product-grid-section">
+        <div class="section-header fade-in" id="product-grid-section">
             <h2 class="section-title">Our Collection</h2>
             <p class="section-subtitle">Curated pieces designed for the modern wardrobe</p>
         </div>
+
         <div class="filter-bar">
             <div class="search-input-wrapper">
                 <span class="search-icon">🔍</span>
@@ -78,7 +82,6 @@
 
         <div id="product-grid"
             style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-md);">
-            <!-- Products will be injected here by JavaScript -->
         </div>
     </main>
 
@@ -88,8 +91,7 @@
             <div class="footer-grid">
                 <div>
                     <p class="footer-brand-name">Aurelia</p>
-                    <p class="footer-brand-desc">Premium essentials crafted for everyday living. Quality you can feel,
-                        style that endures.</p>
+                    <p class="footer-brand-desc">Premium essentials crafted for everyday living. Quality you can feel, style that endures.</p>
                 </div>
                 <div>
                     <p class="footer-heading">Shop</p>
@@ -125,7 +127,6 @@
         </div>
     </footer>
 
-
     <!-- Cart Drawer -->
     <div class="cart-overlay" id="cart-overlay"></div>
     <div class="cart-drawer" id="cart-drawer">
@@ -133,12 +134,8 @@
             <h3>Your Cart</h3>
             <button class="cart-drawer-close" id="cart-close-btn">✕</button>
         </div>
-        <div class="cart-drawer-items" id="cart-drawer-items">
-            <!-- Cart items injected here -->
-        </div>
-        <div class="cart-drawer-footer" id="cart-drawer-footer">
-            <!-- Subtotal + checkout button injected here -->
-        </div>
+        <div class="cart-drawer-items" id="cart-drawer-items"></div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer"></div>
     </div>
 
     <script src="js/api.js"></script>
