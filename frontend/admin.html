@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard — Aurelia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-logo">Aurelia</a>
+            <div class="navbar-links">
+                <a href="index.html">Shop</a>
+            </div>
+            <div id="nav-auth-slot"></div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-block: var(--space-xl) var(--space-2xl);">
+
+        <!-- Shown if not an admin -->
+        <div id="admin-denied" class="admin-denied" style="display: none;">
+            <h2>Access Denied</h2>
+            <p style="margin-top: 0.5rem;">You don't have permission to view this page.</p>
+            <a href="index.html" class="btn btn-secondary" style="margin-top: 1.5rem; display: inline-flex;">Back to Shop</a>
+        </div>
+
+        <!-- Main admin content -->
+        <div id="admin-content">
+            <h1 style="margin-bottom: var(--space-lg);">Admin Dashboard</h1>
+
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-panel="products-panel">Products</button>
+                <button class="admin-tab-btn" data-panel="orders-panel">Orders</button>
+            </div>
+
+            <!-- Products Panel -->
+            <div id="products-panel" class="admin-panel active">
+                <div class="admin-toolbar">
+                    <p>Manage your product catalog</p>
+                    <button class="btn btn-primary" id="add-product-btn">+ Add Product</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-products-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Orders Panel -->
+            <div id="orders-panel" class="admin-panel">
+                <div class="admin-toolbar">
+                    <p>View and manage customer orders</p>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal-overlay" id="product-modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Add Product</h3>
+                <button class="modal-close" id="product-modal-close">✕</button>
+            </div>
+
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-name" class="form-label">Name</label>
+                    <input type="text" id="product-name" class="form-input" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="product-description" class="form-label">Description</label>
+                    <input type="text" id="product-description" class="form-input" required />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-price" class="form-label">Price (₹)</label>
+                        <input type="number" id="product-price" class="form-input" min="0" step="0.01" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="product-stock" class="form-label">Stock</label>
+                        <input type="number" id="product-stock" class="form-input" min="0" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-category" class="form-label">Category</label>
+                    <input type="text" id="product-category" class="form-input" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image" class="form-label">Image URL (optional)</label>
+                    <input type="text" id="product-image" class="form-input" placeholder="https://..." />
+                </div>
+
+                <button type="submit" id="product-form-submit" class="btn btn-primary btn-block">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Drawer (kept for navbar consistency, not heavily used on this page) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-drawer-close" id="cart-close-btn">✕</button>
+        </div>
+        <div class="cart-drawer-items" id="cart-drawer-items"></div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer"></div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

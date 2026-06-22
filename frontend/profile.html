@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders — Aurelia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-logo">Aurelia</a>
+            <div class="navbar-links">
+                <a href="index.html">Shop</a>
+            </div>
+            <div class="navbar-icons">
+                <button class="icon-btn cart-trigger">🛒<span class="cart-badge">0</span></button>
+                <div id="nav-auth-slot"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-block: var(--space-xl) var(--space-2xl); max-width: 700px;">
+        <h1 style="margin-bottom: var(--space-md);">My Orders</h1>
+
+        <div id="order-success-banner" class="form-error" style="display: none; background-color: #e3fde8; color: var(--color-success);">
+            Your order was placed successfully!
+        </div>
+
+        <div id="orders-list" style="margin-top: var(--space-lg);"></div>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-drawer-close" id="cart-close-btn">✕</button>
+        </div>
+        <div class="cart-drawer-items" id="cart-drawer-items"></div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer"></div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/orders.js"></script>
+
+</body>
+
+</html>

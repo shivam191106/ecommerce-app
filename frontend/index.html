@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurelia — Premium Essentials</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-logo">Aurelia</a>
+            <div class="navbar-links">
+                <a href="index.html">Shop</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">About</a>
+            </div>
+            <div class="navbar-icons">
+                <button class="icon-btn cart-trigger">🛒<span class="cart-badge">0</span></button>
+                <div id="nav-auth-slot"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="container" style="padding-block: var(--space-xl) var(--space-lg);">
+        <h1>Effortless essentials,<br />made to last.</h1>
+        <p style="margin-top: 1rem; max-width: 480px;">Thoughtfully designed pieces for everyday living — quality you
+            can feel, style that endures.</p>
+    </header>
+
+    <main class="container" style="padding-bottom: var(--space-2xl);">
+        <div class="filter-bar">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" class="search-input" placeholder="Search products..." />
+            </div>
+            <select id="category-filter" class="category-select">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+
+        <p id="filter-results-info" class="filter-results-info"></p>
+
+        <div id="product-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-md);">
+            <!-- Products will be injected here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-drawer-close" id="cart-close-btn">✕</button>
+        </div>
+        <div class="cart-drawer-items" id="cart-drawer-items">
+            <!-- Cart items injected here -->
+        </div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+            <!-- Subtotal + checkout button injected here -->
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+
+</body>
+
+</html>
