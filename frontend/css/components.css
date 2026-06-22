@@ -999,10 +999,8 @@
 
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  position: relative;
+  width: 100%;
   background-color: var(--color-off-white);
   border-top: 1px solid var(--color-gray-300);
   border-bottom: 1px solid var(--color-gray-300);
@@ -1010,6 +1008,10 @@
   flex-direction: column;
   gap: var(--space-sm);
   z-index: 99;
+}
+
+.mobile-menu.open {
+  display: flex !important;
 }
 
 .mobile-menu.open {

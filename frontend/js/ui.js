@@ -59,4 +59,7 @@ function renderNavAuthState() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', renderNavAuthState);
+document.addEventListener('DOMContentLoaded', () => {
+  renderNavAuthState();
+  initMobileMenu();
+});

@@ -118,7 +118,7 @@ p {
 /* Navbar mobile */
 @media (max-width: 768px) {
   .navbar-links {
-    display: none;
+    display: none !important;
   }
 
   .navbar-logo {
@@ -131,6 +131,20 @@ p {
 
   .nav-user-trigger {
     font-size: 0.8rem;
+  }
+
+  .hamburger-btn {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger-btn {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: none !important;
   }
 }
 
