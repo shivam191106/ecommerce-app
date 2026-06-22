@@ -1,12 +1,17 @@
 function createProductCard(product) {
   return `
-    <a href="product.html?id=${product._id}" class="product-card">
-      <img
-        src="${product.imageUrl}"
-        alt="${product.name}"
-        class="product-card-image"
-        onerror="this.src='https://placehold.co/600x750/f5f5f4/78716c?text=${encodeURIComponent(product.name)}'"
-      />
+    <a href="product.html?id=${product._id}" class="product-card fade-in">
+      <div style="position: relative;">
+        <img
+          src="${product.imageUrl}"
+          alt="${product.name}"
+          class="product-card-image"
+          onerror="this.src='https://placehold.co/600x750/f5f5f4/78716c?text=${encodeURIComponent(product.name)}'"
+        />
+        <div class="product-card-overlay">
+          <button class="product-card-overlay-btn">View Product</button>
+        </div>
+      </div>
       <div class="product-card-body">
         <p class="product-card-category">${product.category}</p>
         <h3 class="product-card-name">${product.name}</h3>
@@ -29,7 +34,9 @@ async function loadProducts(keyword = '', category = '') {
   const resultsInfo = document.getElementById('filter-results-info');
   if (!grid) return;
 
-  grid.innerHTML = `<p>Loading products...</p>`;
+  grid.innerHTML = Array(4).fill(`
+  <div class="skeleton skeleton-card"></div>
+`).join('');
 
   try {
     const queryString = buildQueryString(keyword, category);

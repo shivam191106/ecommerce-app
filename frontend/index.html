@@ -41,13 +41,29 @@
         <a href="login.html">Login</a>
     </div>
 
-    <header class="container" style="padding-block: var(--space-xl) var(--space-lg);">
-        <h1>Effortless essentials,<br />made to last.</h1>
-        <p style="margin-top: 1rem; max-width: 480px;">Thoughtfully designed pieces for everyday living — quality you
-            can feel, style that endures.</p>
-    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-eyebrow">New Collection 2026</p>
+            <h1 class="hero-title">Effortless essentials,<br />made to last.</h1>
+            <p class="hero-subtitle">Thoughtfully designed pieces for everyday living — quality you can feel, style that
+                endures.</p>
+            <div class="hero-actions">
+                <a href="#product-grid" class="btn btn-primary">Shop Now</a>
+                <a href="register.html" class="btn btn-secondary">Join Aurelia</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-placeholder">
+                <p>Aurelia</p>
+            </div>
+        </div>
+    </section>
 
     <main class="container" style="padding-bottom: var(--space-2xl);">
+        <div class="section-header" id="product-grid-section">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="section-subtitle">Curated pieces designed for the modern wardrobe</p>
+        </div>
         <div class="filter-bar">
             <div class="search-input-wrapper">
                 <span class="search-icon">🔍</span>
@@ -65,6 +81,50 @@
             <!-- Products will be injected here by JavaScript -->
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-brand-name">Aurelia</p>
+                    <p class="footer-brand-desc">Premium essentials crafted for everyday living. Quality you can feel,
+                        style that endures.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Shop</p>
+                    <div class="footer-links">
+                        <a href="index.html">All Products</a>
+                        <a href="new-arrivals.html">New Arrivals</a>
+                        <a href="index.html">Accessories</a>
+                        <a href="index.html">Clothing</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="footer-heading">Account</p>
+                    <div class="footer-links">
+                        <a href="login.html">Login</a>
+                        <a href="register.html">Register</a>
+                        <a href="profile.html">My Orders</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="footer-heading">Info</p>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Shipping</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Aurelia. All rights reserved.</p>
+                <p>Made with care in India 🇮🇳</p>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Cart Drawer -->
     <div class="cart-overlay" id="cart-overlay"></div>
@@ -85,6 +145,7 @@
     <script src="js/ui.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/products.js"></script>
+    <script src="js/animations.js"></script>
 
 </body>
 
