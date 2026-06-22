@@ -1,4 +1,6 @@
-const API_BASE_URL = 'https://aurelia-backend-bhve.onrender.com/api';
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:5000/api'
+  : 'https://aurelia-backend-bhve.onrender.com/api';
 
 // Generic request helper used by all API calls
 async function apiRequest(endpoint, options = {}) {
