@@ -870,3 +870,165 @@
   padding: var(--space-2xl) 0;
   grid-column: 1 / -1;
 }
+
+/* ===========================
+   Mobile: Product Grid
+   =========================== */
+@media (max-width: 600px) {
+  #product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-sm) !important;
+  }
+
+  .product-card-name {
+    font-size: 0.95rem;
+  }
+
+  .product-card-price {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  #product-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===========================
+   Mobile: Cart Drawer
+   =========================== */
+@media (max-width: 480px) {
+  .cart-drawer {
+    max-width: 100%;
+  }
+}
+
+/* ===========================
+   Mobile: Filter Bar
+   =========================== */
+@media (max-width: 600px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+  }
+
+  .category-select {
+    width: 100%;
+  }
+}
+
+/* ===========================
+   Mobile: Auth Pages
+   =========================== */
+@media (max-width: 480px) {
+  .auth-wrapper {
+    padding-inline: var(--space-xs);
+  }
+}
+
+/* ===========================
+   Mobile: Product Detail
+   =========================== */
+@media (max-width: 600px) {
+  .product-detail-layout {
+    gap: var(--space-md);
+  }
+
+  .product-detail-price {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* ===========================
+   Mobile: Checkout
+   =========================== */
+@media (max-width: 480px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   Mobile: Admin Dashboard
+   =========================== */
+@media (max-width: 768px) {
+  .admin-table th:nth-child(1),
+  .admin-table td:nth-child(1) {
+    display: none;
+  }
+
+  .admin-table th:nth-child(3),
+  .admin-table td:nth-child(3) {
+    display: none;
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .modal-box {
+    padding: var(--space-md);
+  }
+}
+
+/* ===========================
+   Mobile: Hamburger Menu
+   =========================== */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-charcoal);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-off-white);
+  border-top: 1px solid var(--color-gray-300);
+  border-bottom: 1px solid var(--color-gray-300);
+  padding: var(--space-sm) var(--space-md);
+  flex-direction: column;
+  gap: var(--space-sm);
+  z-index: 99;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+
+  .navbar {
+    position: relative;
+  }
+}

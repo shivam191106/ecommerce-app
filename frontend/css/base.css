@@ -110,3 +110,36 @@ p {
   margin-inline: auto;
   padding-inline: var(--space-md);
 }
+
+/* ===========================
+   Mobile Responsiveness
+   =========================== */
+
+/* Navbar mobile */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-logo {
+    font-size: 1.25rem;
+  }
+
+  .navbar-icons {
+    gap: var(--space-xs);
+  }
+
+  .nav-user-trigger {
+    font-size: 0.8rem;
+  }
+}
+
+/* Typography scale down on mobile */
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+
+  .container {
+    padding-inline: var(--space-sm);
+  }
+}

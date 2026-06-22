@@ -23,18 +23,29 @@
             <a href="index.html" class="navbar-logo">Aurelia</a>
             <div class="navbar-links">
                 <a href="index.html">Shop</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">About</a>
             </div>
             <div class="navbar-icons">
+                <button class="hamburger-btn" id="hamburger-btn">☰</button>
                 <button class="icon-btn cart-trigger">🛒<span class="cart-badge">0</span></button>
                 <div id="nav-auth-slot"></div>
             </div>
         </div>
     </nav>
 
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Shop</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">About</a>
+        <a href="login.html">Login</a>
+    </div>
+
     <main class="container" style="padding-block: var(--space-xl) var(--space-2xl); max-width: 700px;">
         <h1 style="margin-bottom: var(--space-md);">My Orders</h1>
 
-        <div id="order-success-banner" class="form-error" style="display: none; background-color: #e3fde8; color: var(--color-success);">
+        <div id="order-success-banner" class="form-error"
+            style="display: none; background-color: #e3fde8; color: var(--color-success);">
             Your order was placed successfully!
         </div>
 
