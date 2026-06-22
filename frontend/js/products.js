@@ -1,6 +1,6 @@
 function createProductCard(product) {
   return `
-    <a href="product.html?id=${product._id}" class="product-card fade-in">
+    <a href="product.html?id=${product._id}" class="product-card">
       <div style="position: relative;">
         <img
           src="${product.imageUrl}"
@@ -53,6 +53,7 @@ async function loadProducts(keyword = '', category = '') {
     }
 
     grid.innerHTML = products.map(createProductCard).join('');
+    window.dispatchEvent(new Event('productsLoaded'));
 
     if (resultsInfo) {
       const hasFilter = keyword || category;

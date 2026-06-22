@@ -18,7 +18,6 @@ function initScrollAnimations() {
 document.addEventListener('DOMContentLoaded', initScrollAnimations);
 
 // Re-run when new products are loaded
-const originalLoadProducts = window.loadProducts;
 window.addEventListener('productsLoaded', () => {
     setTimeout(initScrollAnimations, 100);
 });
