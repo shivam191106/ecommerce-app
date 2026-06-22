@@ -1,0 +1,8 @@
+# Backend
+backend/node_modules/
+backend/.env
+
+# Frontend (no node_modules since it's vanilla JS)
+# OS files
+.DS_Store
+Thumbs.db
