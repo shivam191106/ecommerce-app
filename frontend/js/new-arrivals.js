@@ -1,17 +1,17 @@
 const DAYS_THRESHOLD = 30;
 
 function isNewProduct(createdAt) {
-  const created = new Date(createdAt);
-  const now = new Date();
-  const diffDays = (now - created) / (1000 * 60 * 60 * 24);
-  return diffDays <= DAYS_THRESHOLD;
+    const created = new Date(createdAt);
+    const now = new Date();
+    const diffDays = (now - created) / (1000 * 60 * 60 * 24);
+    return diffDays <= DAYS_THRESHOLD;
 }
 
 function createNewArrivalCard(product) {
-  const isNew = isNewProduct(product.createdAt);
-  const fallbackImg = `https://placehold.co/600x750/f5f5f4/78716c?text=${encodeURIComponent(product.name)}`;
+    const isNew = product.isNewArrival;
+    const fallbackImg = `https://placehold.co/600x750/f5f5f4/78716c?text=${encodeURIComponent(product.name)}`;
 
-  return `
+    return `
     <a href="product.html?id=${product._id}" class="product-card fade-in">
       <div style="position: relative;">
         <img
@@ -36,61 +36,61 @@ function createNewArrivalCard(product) {
 }
 
 async function loadNewArrivals() {
-  const grid = document.getElementById('new-arrivals-grid');
-  if (!grid) return;
+    const grid = document.getElementById('new-arrivals-grid');
+    if (!grid) return;
 
-  grid.innerHTML = Array(4).fill(`<div class="skeleton skeleton-card"></div>`).join('');
+    grid.innerHTML = Array(4).fill(`<div class="skeleton skeleton-card"></div>`).join('');
 
-  try {
-    const products = await ProductAPI.getNewArrivals();
+    try {
+        const products = await ProductAPI.getNewArrivals();
 
-    if (products.length === 0) {
-      grid.innerHTML = `
+        if (products.length === 0) {
+            grid.innerHTML = `
         <div class="no-results">
           <p>No new arrivals yet. Check back soon!</p>
           <a href="index.html" class="btn btn-secondary" style="margin-top: 1rem; display: inline-flex;">Browse All Products</a>
         </div>
       `;
-      return;
+            return;
+        }
+
+        grid.innerHTML = products.map(createNewArrivalCard).join('');
+
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                el.classList.add('visible');
+            });
+        }, 100);
+
+    } catch (error) {
+        grid.innerHTML = `<p>Failed to load products: ${error.message}</p>`;
     }
-
-    grid.innerHTML = products.map(createNewArrivalCard).join('');
-
-    setTimeout(() => {
-      document.querySelectorAll('.fade-in').forEach((el) => {
-        el.classList.add('visible');
-      });
-    }, 100);
-
-  } catch (error) {
-    grid.innerHTML = `<p>Failed to load products: ${error.message}</p>`;
-  }
 }
 
 function initSortDropdown() {
-  const sortSelect = document.getElementById('arrivals-sort');
-  if (!sortSelect) return;
+    const sortSelect = document.getElementById('arrivals-sort');
+    if (!sortSelect) return;
 
-  sortSelect.addEventListener('change', async () => {
-    const grid = document.getElementById('new-arrivals-grid');
-    const countEl = document.getElementById('arrivals-count');
+    sortSelect.addEventListener('change', async () => {
+        const grid = document.getElementById('new-arrivals-grid');
+        const countEl = document.getElementById('arrivals-count');
 
-    grid.innerHTML = Array(4).fill(`<div class="skeleton skeleton-card"></div>`).join('');
+        grid.innerHTML = Array(4).fill(`<div class="skeleton skeleton-card"></div>`).join('');
 
-    try {
-      const products = await apiRequest(`/products?sort=${sortSelect.value}`);
-      if (countEl) countEl.textContent = `${products.length} products`;
-      grid.innerHTML = products.map(createNewArrivalCard).join('');
-      setTimeout(() => {
-        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
-      }, 100);
-    } catch (error) {
-      grid.innerHTML = `<p>Failed to load: ${error.message}</p>`;
-    }
-  });
+        try {
+            const products = await apiRequest(`/products?sort=${sortSelect.value}`);
+            if (countEl) countEl.textContent = `${products.length} products`;
+            grid.innerHTML = products.map(createNewArrivalCard).join('');
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+            }, 100);
+        } catch (error) {
+            grid.innerHTML = `<p>Failed to load: ${error.message}</p>`;
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadNewArrivals();
-  initSortDropdown();
+    loadNewArrivals();
+    initSortDropdown();
 });

@@ -31,6 +31,10 @@ const productSchema = new mongoose.Schema(
       min: [0, 'Stock cannot be negative'],
       default: 0,
     },
+    isNewArrival: {
+      type: Boolean,
+      default: false,
+    },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',

@@ -98,6 +98,7 @@ function openProductModal(product = null) {
   document.getElementById('product-category').value = product ? product.category : '';
   document.getElementById('product-stock').value = product ? product.stock : '';
   document.getElementById('product-image').value = product && product.imageUrl ? product.imageUrl : '';
+  document.getElementById('product-new-arrival').checked = product ? product.isNewArrival : false;
 
   document.getElementById('product-modal-overlay').classList.add('visible');
 }
@@ -123,7 +124,10 @@ function initProductModal() {
       price: Number(document.getElementById('product-price').value),
       category: document.getElementById('product-category').value.trim(),
       stock: Number(document.getElementById('product-stock').value),
+      isNewArrival: document.getElementById('product-new-arrival').checked,
     };
+
+
 
     const imageUrl = document.getElementById('product-image').value.trim();
     if (imageUrl) productData.imageUrl = imageUrl;

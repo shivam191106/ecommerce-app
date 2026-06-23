@@ -17,6 +17,10 @@ const getProducts = async (req, res) => {
       filter.category = category;
     }
 
+    if (req.query.newArrival === 'true') {
+      filter.isNewArrival = true;
+    }
+
     let sortOption = { createdAt: -1 };
     if (sort === 'price-asc') sortOption = { price: 1 };
     if (sort === 'price-desc') sortOption = { price: -1 };
