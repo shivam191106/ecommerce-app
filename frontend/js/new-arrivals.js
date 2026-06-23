@@ -78,7 +78,7 @@ function initSortDropdown() {
         grid.innerHTML = Array(4).fill(`<div class="skeleton skeleton-card"></div>`).join('');
 
         try {
-            const products = await apiRequest(`/products?sort=${sortSelect.value}`);
+            const products = await apiRequest(`/products?newArrival=true&sort=${sortSelect.value}`);
             if (countEl) countEl.textContent = `${products.length} products`;
             grid.innerHTML = products.map(createNewArrivalCard).join('');
             setTimeout(() => {
