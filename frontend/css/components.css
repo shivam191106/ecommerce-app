@@ -1316,3 +1316,59 @@
     text-align: center;
   }
 }
+
+/* ===========================
+   New Arrivals Page
+   =========================== */
+.new-arrivals-hero {
+  background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-charcoal-light) 100%);
+  color: var(--color-white);
+  padding-block: var(--space-2xl);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.new-arrivals-hero h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.new-arrivals-hero p {
+  color: var(--color-gray-300);
+  font-size: 1.1rem;
+}
+
+.new-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.product-card-date {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  margin-top: 0.25rem;
+}
+
+.arrivals-sort-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.arrivals-count {
+  font-size: 0.9rem;
+  color: var(--color-gray-500);
+}

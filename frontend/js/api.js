@@ -36,6 +36,9 @@ const ProductAPI = {
   getById(id) {
     return apiRequest(`/products/${id}`);
   },
+  getNewArrivals() {
+    return apiRequest('/products?sort=newest');
+  },
 };
 
 // ===========================

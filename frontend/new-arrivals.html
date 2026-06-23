@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Arrivals — Aurelia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="index.html" class="navbar-logo">Aurelia</a>
+            <div class="navbar-links">
+                <a href="index.html">Shop</a>
+                <a href="new-arrivals.html">New Arrivals</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="navbar-icons">
+                <button class="hamburger-btn" id="hamburger-btn">☰</button>
+                <button class="icon-btn cart-trigger">🛒<span class="cart-badge">0</span></button>
+                <div id="nav-auth-slot"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html">Shop</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="about.html">About</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <!-- Page Hero -->
+    <div class="new-arrivals-hero">
+        <h1>New Arrivals</h1>
+        <p>Fresh pieces, just landed — be the first to own them.</p>
+    </div>
+
+    <main class="container" style="padding-bottom: var(--space-2xl);">
+
+        <div class="arrivals-sort-bar">
+            <p class="arrivals-count" id="arrivals-count"></p>
+            <select class="category-select" id="arrivals-sort" style="min-width: 180px;">
+                <option value="newest">Newest First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div id="new-arrivals-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-md);">
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <p class="footer-brand-name">Aurelia</p>
+                    <p class="footer-brand-desc">Premium essentials crafted for everyday living. Quality you can feel, style that endures.</p>
+                </div>
+                <div>
+                    <p class="footer-heading">Shop</p>
+                    <div class="footer-links">
+                        <a href="index.html">All Products</a>
+                        <a href="new-arrivals.html">New Arrivals</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="footer-heading">Account</p>
+                    <div class="footer-links">
+                        <a href="login.html">Login</a>
+                        <a href="register.html">Register</a>
+                        <a href="profile.html">My Orders</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="footer-heading">Info</p>
+                    <div class="footer-links">
+                        <a href="about.html">About Us</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Aurelia. All rights reserved.</p>
+                <p>Made with care in India 🇮🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-drawer-close" id="cart-close-btn">✕</button>
+        </div>
+        <div class="cart-drawer-items" id="cart-drawer-items"></div>
+        <div class="cart-drawer-footer" id="cart-drawer-footer"></div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/new-arrivals.js"></script>
+    <script src="js/animations.js"></script>
+
+</body>
+
+</html>

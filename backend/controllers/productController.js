@@ -5,19 +5,24 @@ const Product = require('../models/Product');
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const { keyword, category } = req.query;
+    const { keyword, category, sort } = req.query;
 
     const filter = {};
 
     if (keyword) {
-      filter.name = { $regex: keyword, $options: 'i' }; // case-insensitive search
+      filter.name = { $regex: keyword, $options: 'i' };
     }
 
     if (category) {
       filter.category = category;
     }
 
-    const products = await Product.find(filter).sort({ createdAt: -1 });
+    let sortOption = { createdAt: -1 };
+    if (sort === 'price-asc') sortOption = { price: 1 };
+    if (sort === 'price-desc') sortOption = { price: -1 };
+    if (sort === 'oldest') sortOption = { createdAt: 1 };
+
+    const products = await Product.find(filter).sort(sortOption);
 
     res.status(200).json(products);
   } catch (error) {
