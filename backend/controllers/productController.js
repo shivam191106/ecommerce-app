@@ -56,12 +56,11 @@ const getProductById = async (req, res) => {
 // @access  Private/Admin
 const createProduct = async (req, res) => {
   try {
-    const { name, description, price, category, imageUrl, stock } = req.body;
+    const { name, description, price, category, imageUrl, stock, isNewArrival } = req.body;
 
     if (!name || !description || !price || !category) {
       return res.status(400).json({ message: 'Please fill in all required fields' });
     }
-
     const product = await Product.create({
       name,
       description,
@@ -69,6 +68,7 @@ const createProduct = async (req, res) => {
       category,
       imageUrl,
       stock,
+      isNewArrival: isNewArrival || false,
       createdBy: req.user._id,
     });
 
@@ -89,14 +89,14 @@ const updateProduct = async (req, res) => {
       return res.status(404).json({ message: 'Product not found' });
     }
 
-    const { name, description, price, category, imageUrl, stock } = req.body;
-
+    const { name, description, price, category, imageUrl, stock, isNewArrival } = req.body;
     product.name = name ?? product.name;
     product.description = description ?? product.description;
     product.price = price ?? product.price;
     product.category = category ?? product.category;
     product.imageUrl = imageUrl ?? product.imageUrl;
     product.stock = stock ?? product.stock;
+    product.isNewArrival = typeof isNewArrival !== 'undefined' ? isNewArrival : product.isNewArrival;
 
     const updatedProduct = await product.save();
 
