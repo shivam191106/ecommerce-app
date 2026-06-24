@@ -208,7 +208,7 @@ function attachOrderStatusEvents() {
 document.addEventListener('DOMContentLoaded', () => {
   if (!checkAdminAccess()) return;
 
-  initAdminTabs();
+  
   initProductModal();
   loadAdminProducts();
   loadAdminOrders();
